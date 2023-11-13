@@ -1,3 +1,9 @@
+import NavbarComponent from "../components/navpage";
+
 export default function ComputerPage() {
-  return <h1>ComSci</h1>;
+  return (
+    <div>
+      <NavbarComponent navTitle="Coding" />
+    </div>
+  );
 }
