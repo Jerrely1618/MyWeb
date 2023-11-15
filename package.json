@@ -1,6 +1,10 @@
 {
   "dependencies": {
+    "@ant-design/icons": "^5.2.6",
+    "antd": "^5.11.1",
     "prop-types": "^15.8.1",
+    "rc-tween-one": "^3.0.6",
+    "react": "^18.2.0",
     "react-router-bootstrap": "^0.26.2"
   }
 }
