@@ -10,7 +10,7 @@ import { GithubOutlined, LinkedinOutlined } from "@ant-design/icons";
 export default function NavbarComponent({ navTitle }) {
   return (
     <Navbar
-      bg="dark"
+      bg="transparent"
       data-bs-theme="white"
       key="sm"
       expand="sm"
