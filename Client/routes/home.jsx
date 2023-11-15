@@ -1,5 +1,4 @@
-import NavbarComponent from "../components/navpage";
-
+import NavbarComponent from "../components/navpage.jsx";
 export default function HomePage() {
   return (
     <div>

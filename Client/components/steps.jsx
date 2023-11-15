@@ -1,13 +1,38 @@
 import { Steps } from "antd";
 import PropTypes from "prop-types";
-const description = "This is a description.";
 import { useState } from "react";
 
-export default function Lining() {
+// Routing example
+// export default function HomePage() {
+//   const l_stops = [
+//     {
+//       title: "Finished",
+//       description: "description",
+//     },
+//     {
+//       title: "In Progress",
+//       description: "description",
+//     },
+//     {
+//       title: "In Progress",
+//       description: "description",
+//     },
+//   ];
+//   const handleStepClick = (clickedTitle) => {
+//     console.log(`Clicked on: ${clickedTitle}`);
+//   };
+//   return (
+//     <div>
+//       <Lining stops={l_stops} onStepClick={handleStepClick} />
+//     </div>
+//   );
+export default function Lining({ stops, onStepClick }) {
   const [currentStep, setCurrentStep] = useState(0);
 
   const handleStepClick = (index) => {
     setCurrentStep(index);
+    const clickedTitle = stops[index].title;
+    onStepClick(clickedTitle);
   };
 
   return (
@@ -15,24 +40,17 @@ export default function Lining() {
       direction="vertical"
       current={currentStep}
       onChange={handleStepClick}
-      items={[
-        {
-          title: "Finished",
-          description,
-        },
-        {
-          title: "In Progress",
-          description,
-        },
-        {
-          title: "In Progress",
-          description,
-        },
-      ]}
+      items={stops}
     />
   );
 }
 
 Lining.propTypes = {
-  count: PropTypes.number,
+  stops: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  onStepClick: PropTypes.func.isRequired,
 };
