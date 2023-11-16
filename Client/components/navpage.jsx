@@ -33,32 +33,8 @@ export default function NavbarComponent({ navTitle }) {
           <Offcanvas.Body>
             <Nav className="justify-content-end flex-grow-1 pe-3">
               <Nav.Link href="/">Home</Nav.Link>
-              <NavDropdown
-                title="Electronics"
-                id={`offcanvasNavbarDropdown-expand-sm`}
-              >
-                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action5">
-                  Something else here
-                </NavDropdown.Item>
-              </NavDropdown>
-              <NavDropdown
-                title="Coding"
-                id={`offcanvasNavbarDropdown-expand-sm`}
-              >
-                <NavDropdown.Item href="/com">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action5">
-                  Something else here
-                </NavDropdown.Item>
-              </NavDropdown>
+              <Nav.Link href="/">Electronics</Nav.Link>
+              <Nav.Link href="/com">Coding</Nav.Link>
               <NavDropdown
                 title="Contact"
                 id={`offcanvasNavbarDropdown-expand-sm`}
