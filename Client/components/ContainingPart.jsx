@@ -13,7 +13,6 @@ export default function ContainingPart() {
     <Card
       style={{
         margin: "100px",
-        width: "80%",
         height: "70%",
       }}
     >
@@ -23,6 +22,7 @@ export default function ContainingPart() {
             <Nav.Link
               onClick={() => handleTabClick("MyStudy")}
               active={activeTab === "MyStudy"}
+              style={{ fontWeight: "bold" }}
             >
               MyStudy
             </Nav.Link>
@@ -31,6 +31,7 @@ export default function ContainingPart() {
             <Nav.Link
               onClick={() => handleTabClick("HealthJourney")}
               active={activeTab === "HealthJourney"}
+              style={{ fontWeight: "bold" }}
             >
               Health Journey
             </Nav.Link>

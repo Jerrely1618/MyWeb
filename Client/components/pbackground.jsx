@@ -1,6 +1,7 @@
 import { useCallback } from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
+import { le_colors } from "../public/constantsColors";
 
 export default function ParticlesBackground() {
   const particlesInit = useCallback(async (engine) => {
@@ -20,10 +21,10 @@ export default function ParticlesBackground() {
           fullScreen: true,
           particles: {
             number: { value: 12, density: { enable: true, value_area: 600 } },
-            color: { value: "blue" },
+            color: { value: "" },
             shape: {
               type: "circle",
-              stroke: { width: 2, color: "#000000" },
+              stroke: { width: 2, color: "#1976D2" },
               polygon: { nb_sides: 3 },
             },
             size: {
@@ -64,7 +65,6 @@ export default function ParticlesBackground() {
         }}
         style={{ position: "absolute", top: 0, left: 0, zIndex: 0 }}
       />
-      ;
     </div>
   );
 }

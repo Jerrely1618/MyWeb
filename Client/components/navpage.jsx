@@ -6,6 +6,7 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import "bootstrap/dist/css/bootstrap.min.css";
 import PropTypes from "prop-types";
 import { GithubOutlined, LinkedinOutlined } from "@ant-design/icons";
+import { le_colors } from "../public/constantsColors";
 
 export default function NavbarComponent({ navTitle }) {
   return (
@@ -14,11 +15,21 @@ export default function NavbarComponent({ navTitle }) {
       data-bs-theme="white"
       key="sm"
       expand="sm"
-      className="bg-body-tertiary mb-3 pl-3"
+      className="text-primary bg-body-tertiary mb-3 pl-3 navbar text-primary"
       fixed="top"
+      style={{ color: "#1976d2" }} // Set the color here
     >
       <Container fluid>
-        <Navbar.Brand href="/">{navTitle}</Navbar.Brand>
+        <Navbar.Brand
+          style={{
+            color: le_colors.third,
+            fontWeight: "bold",
+            fontSize: "20px",
+          }}
+          href="/"
+        >
+          {navTitle}
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-sm`} />
         <Navbar.Offcanvas
           id={`offcanvasNavbar-expand-sm`}
@@ -26,12 +37,15 @@ export default function NavbarComponent({ navTitle }) {
           placement="end"
         >
           <Offcanvas.Header closeButton>
-            <Offcanvas.Title id={`offcanvasNavbarLabel-expand-sm`}>
+            <Offcanvas.Title
+              className="text-primary"
+              id={`offcanvasNavbarLabel-expand-sm`}
+            >
               Menu
             </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
-            <Nav className="justify-content-end flex-grow-1 pe-3">
+            <Nav className="text-primary justify-content-end flex-grow-1 pe-3">
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/">Electronics</Nav.Link>
               <Nav.Link href="/com">Coding</Nav.Link>

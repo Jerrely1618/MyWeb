@@ -7,7 +7,15 @@
   color: white; /* Initial text color */
   mix-blend-mode: lighten; /* Blend mode to turn text white */
 }
-
+.navbar-header {
+  background-color: black;
+  color: #1976d2;
+}
+.navbar-text {
+  background-color: black;
+  color: #1976d2;
+  font-weight: bold;
+}
 #tsparticles {
   position: absolute;
   top: 0;

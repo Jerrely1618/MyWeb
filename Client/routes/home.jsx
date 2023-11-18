@@ -1,5 +1,6 @@
 import NavbarComponent from "../components/navpage.jsx";
 import ParticlesBackground from "../components/pbackground.jsx";
+import { le_colors } from "../public/constantsColors.js";
 
 export default function HomePage() {
   return (
@@ -12,9 +13,23 @@ export default function HomePage() {
           paddingLeft: "10px",
         }}
       >
-        <h1 className="text-container">Welcome to my Portfolio!</h1>
+        <h1 style={{ fontWeight: "bold" }} className="text-container">
+          Welcome to my Portfolio!
+        </h1>
       </div>
       <ParticlesBackground />
+      <a
+        style={{
+          fontSize: "75px",
+          bottom: 0,
+          right: 0,
+          position: "fixed",
+          color: "white",
+        }}
+        href="/logindev"
+      >
+        Oh no!
+      </a>
     </div>
   );
 }
