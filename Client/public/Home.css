@@ -4,8 +4,8 @@
 }
 
 .text-container h1 {
-  color: white; /* Initial text color */
-  mix-blend-mode: lighten; /* Blend mode to turn text white */
+  font-size: 80px;
+  color: yellow;
 }
 .navbar-header {
   background-color: black;

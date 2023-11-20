@@ -2,7 +2,7 @@ import Card from "react-bootstrap/Card";
 import Nav from "react-bootstrap/Nav";
 import GitHubButton from "react-github-btn";
 import { useState } from "react";
-
+import { le_colors } from "../public/constantsColors";
 export default function ContainingPart() {
   const [activeTab, setActiveTab] = useState("MyStudy");
 
@@ -16,13 +16,19 @@ export default function ContainingPart() {
         height: "70%",
       }}
     >
-      <Card.Header style={{ width: "100%", height: "100%" }}>
+      <Card.Header
+        style={{
+          width: "100%",
+          height: "100%",
+          backgroundColor: le_colors.secondary,
+        }}
+      >
         <Nav variant="tabs" defaultActiveKey="#first">
           <Nav.Item>
             <Nav.Link
               onClick={() => handleTabClick("MyStudy")}
               active={activeTab === "MyStudy"}
-              style={{ fontWeight: "bold" }}
+              style={{ fontWeight: "bold", color: le_colors.primary }}
             >
               MyStudy
             </Nav.Link>
@@ -31,7 +37,7 @@ export default function ContainingPart() {
             <Nav.Link
               onClick={() => handleTabClick("HealthJourney")}
               active={activeTab === "HealthJourney"}
-              style={{ fontWeight: "bold" }}
+              style={{ fontWeight: "bold", color: le_colors.primary }}
             >
               Health Journey
             </Nav.Link>

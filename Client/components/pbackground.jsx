@@ -21,10 +21,10 @@ export default function ParticlesBackground() {
           fullScreen: true,
           particles: {
             number: { value: 12, density: { enable: true, value_area: 600 } },
-            color: { value: "" },
+            color: { value: "white" },
             shape: {
               type: "circle",
-              stroke: { width: 2, color: "#1976D2" },
+              stroke: { width: 2, color: le_colors.third },
               polygon: { nb_sides: 3 },
             },
             size: {

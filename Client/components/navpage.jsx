@@ -11,20 +11,18 @@ import { le_colors } from "../public/constantsColors";
 export default function NavbarComponent({ navTitle }) {
   return (
     <Navbar
-      bg="transparent"
-      data-bs-theme="white"
       key="sm"
       expand="sm"
-      className="text-primary bg-body-tertiary mb-3 pl-3 navbar text-primary"
+      className=" mb-3 pl-3 navbar text-primary"
+      style={{ backgroundColor: le_colors.third }}
       fixed="top"
-      style={{ color: "#1976d2" }} // Set the color here
     >
       <Container fluid>
         <Navbar.Brand
           style={{
-            color: le_colors.third,
+            color: le_colors.primary,
             fontWeight: "bold",
-            fontSize: "20px",
+            fontSize: "30px",
           }}
           href="/"
         >
