@@ -1,10 +1,10 @@
-import NavbarComponent from "../components/navpage.jsx";
-import ParticlesBackground from "../components/pbackground.jsx";
+import NavbarComponent from "../../components/navpage.jsx";
+import ParticlesBackground from "../../components/pbackground.jsx";
 import "rc-banner-anim/assets/index.css";
 import anime from "animejs/lib/anime.es.js";
 import { useState } from "react";
 import Button from "@mui/material/Button";
-import { le_colors } from "../public/constantsColors.js";
+import { le_colors } from "../../public/constantsColors.js";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Checkbox, Form, Input } from "antd";
 

@@ -1,7 +1,7 @@
-import NavbarComponent from "../components/navpage.jsx";
-import ParticlesBackground from "../components/pbackground.jsx";
-import { le_colors } from "../public/constantsColors.js";
-import "../public/Home.css";
+import NavbarComponent from "../../components/navpage.jsx";
+import ParticlesBackground from "../../components/pbackground.jsx";
+import { le_colors } from "../../public/constantsColors.js";
+import "../../public/Home.css";
 export default function HomePage() {
   return (
     <div>
