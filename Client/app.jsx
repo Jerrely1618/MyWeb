@@ -1,6 +1,6 @@
-import HomePage from "../routes/home";
-import ComputerPage from "../routes/comsci";
-import LoginPage from "../routes/login";
+import HomePage from "./routes/home";
+import ComputerPage from "./routes/comsci";
+import LoginPage from "./routes/login";
 
 import { createBrowserRouter } from "react-router-dom";
 
