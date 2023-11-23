@@ -1,34 +1,27 @@
+// ContainingPart.jsx
+
 import Card from "react-bootstrap/Card";
 import Nav from "react-bootstrap/Nav";
 import GitHubButton from "react-github-btn";
 import { useState } from "react";
-import { le_colors } from "../public/constantsColors";
+import "./ContainingPart.css"; // Import the CSS file
+
 export default function ContainingPart() {
   const [activeTab, setActiveTab] = useState("MyStudy");
 
   const handleTabClick = (tabName) => {
     setActiveTab(tabName);
   };
+
   return (
-    <Card
-      style={{
-        margin: "100px",
-        height: "70%",
-      }}
-    >
-      <Card.Header
-        style={{
-          width: "100%",
-          height: "100%",
-          backgroundColor: le_colors.secondary,
-        }}
-      >
+    <Card className="card-container">
+      <Card.Header className="card-header">
         <Nav variant="tabs" defaultActiveKey="#first">
           <Nav.Item>
             <Nav.Link
               onClick={() => handleTabClick("MyStudy")}
               active={activeTab === "MyStudy"}
-              style={{ fontWeight: "bold", color: le_colors.primary }}
+              className="nav-link"
             >
               MyStudy
             </Nav.Link>
@@ -37,7 +30,7 @@ export default function ContainingPart() {
             <Nav.Link
               onClick={() => handleTabClick("HealthJourney")}
               active={activeTab === "HealthJourney"}
-              style={{ fontWeight: "bold", color: le_colors.primary }}
+              className="nav-link"
             >
               Health Journey
             </Nav.Link>
@@ -55,7 +48,7 @@ export default function ContainingPart() {
             <Card.Title>MyStudy</Card.Title>
             <Card.Text>
               We were inspired to address the problem of education inequality.
-              It's an issue that is not restricted to one specific area, it is
+              It is an issue that is not restricted to one specific area, it is
               something each of us have all personally witnessed the glaring
               disparities in educational access and quality. We wanted to
               attempt to bridge this gap, to make it so that students from all

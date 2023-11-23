@@ -1,0 +1,15 @@
+.card-container {
+  margin: 100px;
+  height: 70%;
+}
+
+.card-header {
+  width: 100%;
+  height: 100%;
+  background-color: var(--le_colors_secondary);
+}
+
+.nav-link {
+  font-weight: bold;
+  color: var(--le_colors_primary);
+}

@@ -1,0 +1,53 @@
+.text-container {
+  position: relative;
+  z-index: 1;
+}
+
+.text-container h1 {
+  font-size: 80px;
+  color: yellow;
+}
+.navbar-header {
+  background-color: black;
+  color: #1976d2;
+}
+.navbar-text {
+  background-color: black;
+  color: #1976d2;
+  font-weight: bold;
+}
+#tsparticles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  background-color: transparent;
+}
+.text-container {
+  font-weight: bold;
+}
+
+h1.text-container {
+  font-size: 40px;
+}
+
+h1.text-container.big {
+  font-size: 80px;
+  color: var(--le_colors_secondary);
+}
+
+a.fixed-link {
+  font-size: 75px;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  color: white;
+}
+
+#tsparticles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  background-color: transparent;
+}

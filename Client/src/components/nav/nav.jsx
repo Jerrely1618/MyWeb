@@ -6,28 +6,18 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import "bootstrap/dist/css/bootstrap.min.css";
 import PropTypes from "prop-types";
 import { GithubOutlined, LinkedinOutlined } from "@ant-design/icons";
-import { le_colors } from "../public/constantsColors";
+import "./nav.css";
 
 export default function NavbarComponent({ navTitle }) {
   return (
     <Navbar
       key="sm"
       expand="sm"
-      className=" mb-3 pl-3 navbar text-primary"
-      style={{ backgroundColor: le_colors.third }}
+      className=" mb-3 pl-3 navbar text-primary transparent"
       fixed="top"
     >
       <Container fluid>
-        <Navbar.Brand
-          style={{
-            color: le_colors.primary,
-            fontWeight: "bold",
-            fontSize: "30px",
-          }}
-          href="/"
-        >
-          {navTitle}
-        </Navbar.Brand>
+        <Navbar.Brand href="/">{navTitle}</Navbar.Brand>
         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-sm`} />
         <Navbar.Offcanvas
           id={`offcanvasNavbar-expand-sm`}
