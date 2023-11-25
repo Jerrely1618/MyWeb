@@ -1,7 +1,7 @@
 import NavbarComponent from "../../components/nav/nav.jsx";
 import ParticlesBackground from "../../components/pbackground/pbackground.jsx";
 import "./home.css";
-import "../../constants/constants.css";
+import "../../constants/colors/colors.css";
 
 export default function HomePage() {
   return (

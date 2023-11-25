@@ -4,7 +4,7 @@ import "rc-banner-anim/assets/index.css";
 import anime from "animejs/lib/anime.es.js";
 import { useState } from "react";
 import Button from "@mui/material/Button";
-import { le_colors } from "../../constants/constants.js";
+import { le_colors } from "../../constants/colors/colors.js";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Checkbox, Form, Input } from "antd";
 import "./login.css";

@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
-import { le_colors } from "../../constants/constants.js";
+import { le_colors } from "../../constants/colors/colors.js";
 
 export default function ParticlesBackground() {
   const particlesInit = useCallback(async (engine) => {
