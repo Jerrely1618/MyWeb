@@ -35,8 +35,8 @@ export default function NavbarComponent({ navTitle }) {
           <Offcanvas.Body>
             <Nav className="text-primary justify-content-end flex-grow-1 pe-3">
               <Nav.Link href="/MyWeb/">Home</Nav.Link>
-              <Nav.Link href="/MyWeb/">Electronics</Nav.Link>
-              <Nav.Link href="/MyWeb/com">Coding</Nav.Link>
+              <Nav.Link href="/MyWeb/ee">Electronics</Nav.Link>
+              <Nav.Link href="/MyWeb/cs">Coding</Nav.Link>
               <NavDropdown
                 title="Contact"
                 id={`offcanvasNavbarDropdown-expand-sm`}

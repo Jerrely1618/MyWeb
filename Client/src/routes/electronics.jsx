@@ -1,14 +1,14 @@
 import NavbarComponent from "../components/nav/nav.jsx";
 import ParticlesBackground from "../components/pbackground/pbackground.jsx";
 import ContainingPart from "../components/ContainingPart/ContainingPart.jsx";
-import { coding_projects } from "../constants/projects/codingprojects.js";
+import { electronics_projects } from "../constants/projects/electronicprojects.js";
 
-export default function ComputerPage() {
+export default function ElectronicsPage() {
   return (
     <>
-      <NavbarComponent navTitle="Coding" />
+      <NavbarComponent navTitle="Electronics" />
       <ParticlesBackground />
-      <ContainingPart projects={coding_projects} />
+      <ContainingPart projects={electronics_projects} />
     </>
   );
 }
