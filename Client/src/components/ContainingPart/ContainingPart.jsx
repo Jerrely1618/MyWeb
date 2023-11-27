@@ -4,6 +4,7 @@ import GitHubButton from "react-github-btn";
 import { useState } from "react";
 import "./ContainingPart.css";
 import PropTypes from "prop-types";
+import { Carousel } from "antd";
 
 export default function ContainingPart({ projects }) {
   const [activeTab, setActiveTab] = useState("MyStudy");
@@ -36,27 +37,39 @@ export default function ContainingPart({ projects }) {
           </Nav.Item>
         </Nav>
       </Card.Header>
-
-      <Card.Body>
-        {projects.map((project) => (
-          <div key={project.title}>
+      {projects.map((project) => (
+        <div key={project.title}>
+          <Card.Body>
             {activeTab === project.title && (
               <>
+                {project.pictures && (
+                  <Carousel dotPosition="left">
+                    {project.pictures.map((picture, index) => (
+                      <img
+                        key={index}
+                        src={picture}
+                        alt={`Project ${project.title} Image`}
+                      />
+                    ))}
+                  </Carousel>
+                )}
                 <Card.Title>{project.title}</Card.Title>
                 <Card.Text>{project.description}</Card.Text>
-                <GitHubButton
-                  href={project.git_link}
-                  data-color-scheme="no-preference: light; light: light; dark: dark_high_contrast;"
-                  data-size="large"
-                  aria-label={"Star ${project.title} on GitHub"}
-                >
-                  Star
-                </GitHubButton>
+                {project.git_link && (
+                  <GitHubButton
+                    href={project.git_link}
+                    data-color-scheme="no-preference: light; light: light; dark: dark_high_contrast;"
+                    data-size="large"
+                    aria-label={"Star ${project.title} on GitHub"}
+                  >
+                    Star
+                  </GitHubButton>
+                )}
               </>
             )}
-          </div>
-        ))}
-      </Card.Body>
+          </Card.Body>
+        </div>
+      ))}
     </Card>
   );
 }
