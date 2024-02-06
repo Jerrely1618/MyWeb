@@ -11,7 +11,11 @@
   height: 50px;
   background-color: var(--le_colors_secondary);
 }
-
+.card-text-container {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; /* Add these to prevent overflow */
+}
 .nav-link {
   font-weight: bold;
   color: var(--le_colors_primary);
@@ -24,4 +28,24 @@
   .card-header {
     padding: 0.5rem;
   }
+}
+.carousel-img {
+  width: 100%; /* This makes sure the image scales with the container */
+  height: auto; /* Height will scale with the width to maintain aspect ratio */
+  object-fit: contain;
+}
+.carousel-container {
+  width: 100%; /* Make sure the carousel takes up the correct width */
+  height: auto; /* Adjust based on your needs */
+}
+.images {
+  height: 500px;
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    width: 95%; /* Increase width on smaller screens for better utilization of space */
+    /* ... other styles ... */
+  }
+  /* ... other responsive styles ... */
 }

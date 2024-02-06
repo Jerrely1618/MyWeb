@@ -38,23 +38,34 @@ export default function ContainingPart({ projects }) {
         </Nav>
       </Card.Header>
       {projects.map((project) => (
-        <div key={project.title}>
+        <div
+          key={project.title}
+          className={
+            activeTab === project.title ? "carousel-container" : "hidden"
+          }
+        >
           <Card.Body>
             {activeTab === project.title && (
               <>
                 {project.pictures && (
-                  <Carousel dotPosition="left">
-                    {project.pictures.map((picture, index) => (
-                      <img
-                        key={index}
-                        src={picture}
-                        alt={`Project ${project.title} Image`}
-                      />
-                    ))}
-                  </Carousel>
+                  <div className="images">
+                    <Carousel dotPosition="left">
+                      {project.pictures.map((picture, index) => (
+                        <div key={index}>
+                          <img
+                            className="carousel-img"
+                            src={picture}
+                            alt={`Project ${project.title} Image`}
+                          />
+                        </div>
+                      ))}
+                    </Carousel>
+                  </div>
                 )}
                 <Card.Title>{project.title}</Card.Title>
-                <Card.Text>{project.description}</Card.Text>
+                <div className="card-text">
+                  <Card.Text>{project.description}</Card.Text>
+                </div>
                 {project.git_link && (
                   <GitHubButton
                     href={project.git_link}
