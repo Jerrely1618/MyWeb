@@ -5,25 +5,18 @@ const app = express();
 const helmet = require("helmet");
 const cors = require("cors");
 const morgan = require("morgan");
-const { fetchImagesByID, fetchProjectsByType } = require("./db");
+const { fetchProjectsByType } = require("./db");
 
 app.use(morgan("combined"));
 app.use(helmet());
-app.use(cors());
-app.use(express.static("build"));
+const corsOptions = {
+  origin: "http://localhost:5173",
+  optionsSuccessStatus: 200,
+};
 
-app.get("/api/images", async (req, res) => {
-  try {
-    const images = await fetchImagesByID();
-    res.json(images);
-  } catch (error) {
-    console.error("Error fetching images:", error);
-    res.status(500).json({ error: error.message });
-  }
-});
+app.use(cors(corsOptions));
 
 app.get("/api/projects/:type", async (req, res) => {
-  console.log("called1");
   const { type } = req.params;
   try {
     const projects = await fetchProjectsByType(type);
@@ -33,9 +26,9 @@ app.get("/api/projects/:type", async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "build", "index.html"));
-});
+
+// Serve static assets (usually for production)
+app.use(express.static("build"));
 
 const PORT = process.env.PORT || 3000;
 

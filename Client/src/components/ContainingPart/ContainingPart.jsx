@@ -12,7 +12,6 @@ export default function ContainingPart({ projects }) {
   const handleTabClick = (tabName) => {
     setActiveTab(tabName);
   };
-
   return (
     <Card className="card-container">
       <Card.Header className="card-header">
@@ -47,14 +46,14 @@ export default function ContainingPart({ projects }) {
           <Card.Body>
             {activeTab === project.title && (
               <>
-                {project.pictures && (
+                {project.Images && (
                   <div className="images">
                     <Carousel dotPosition="left">
-                      {project.pictures.map((picture, index) => (
+                      {project.Images.map((picture, index) => (
                         <div key={index}>
                           <img
                             className="carousel-img"
-                            src={picture}
+                            src={picture.url}
                             alt={`Project ${project.title} Image`}
                           />
                         </div>

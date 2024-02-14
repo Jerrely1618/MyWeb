@@ -1,7 +1,6 @@
 import NavbarComponent from "../components/nav/nav.jsx";
 import ParticlesBackground from "../components/pbackground/pbackground.jsx";
 import ContainingPart from "../components/ContainingPart/ContainingPart.jsx";
-import { coding_projects } from "../constants/projects/codingprojects.js";
 import { useEffect, useState } from "react";
 
 export default function ComputerPage() {
@@ -9,9 +8,11 @@ export default function ComputerPage() {
 
   useEffect(() => {
     const fetchProjects = async () => {
-      const projectType = "coding";
+      const projectType = "computer";
       try {
-        const response = await fetch(`/api/projects/${projectType}`);
+        const response = await fetch(
+          `http://localhost:3000/api/projects/${projectType}`
+        );
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -21,7 +22,6 @@ export default function ComputerPage() {
         console.log("Fetching error:", error);
       }
     };
-
     fetchProjects();
   }, []);
 

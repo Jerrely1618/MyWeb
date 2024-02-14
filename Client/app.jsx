@@ -14,8 +14,8 @@ export const appRoutes = [
 ];
 
 export const router = createBrowserRouter([
-  { path: "/MyWeb/", element: <HomePage /> },
-  { path: "/MyWeb/cs", element: <ComputerPage /> },
-  { path: "/MyWeb/logindev", element: <LoginPage /> },
-  { path: "/MyWeb/ee", element: <ElectronicsPage /> },
+  { path: "/", element: <HomePage /> },
+  { path: "/cs", element: <ComputerPage /> },
+  { path: "/logindev", element: <LoginPage /> },
+  { path: "/ee", element: <ElectronicsPage /> },
 ]);
