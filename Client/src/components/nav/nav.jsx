@@ -13,7 +13,7 @@ export default function NavbarComponent({ navTitle }) {
     <Navbar
       key="sm"
       expand="sm"
-      className=" mb-3 pl-3 navbar text-primary transparent"
+      className=" mb-3 pl-3 navbar text-primary transparent  navbar-dark "
       fixed="top"
     >
       <Container fluid>
@@ -34,9 +34,9 @@ export default function NavbarComponent({ navTitle }) {
           </Offcanvas.Header>
           <Offcanvas.Body>
             <Nav className="text-primary justify-content-end flex-grow-1 pe-3">
-              <Nav.Link href="/MyWeb/">Home</Nav.Link>
-              <Nav.Link href="/MyWeb/ee">Electronics</Nav.Link>
-              <Nav.Link href="/MyWeb/cs">Coding</Nav.Link>
+              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/ee">Electronics</Nav.Link>
+              <Nav.Link href="/cs">Coding</Nav.Link>
               <NavDropdown
                 title="Contact"
                 id={`offcanvasNavbarDropdown-expand-sm`}

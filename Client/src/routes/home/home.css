@@ -1,11 +1,8 @@
 .text-container {
   position: relative;
   z-index: 1;
-}
-
-.text-container h1 {
   font-size: 80px;
-  color: yellow;
+  color: rgb(239, 239, 228);
 }
 .navbar-header {
   background-color: black;

@@ -21,13 +21,13 @@ app.get("/api/projects/:type", async (req, res) => {
   try {
     const projects = await fetchProjectsByType(type);
     res.json(projects);
+    console.log(projects[0].Images);
   } catch (error) {
     console.error("Error fetching projects:", error);
     res.status(500).json({ error: error.message });
   }
 });
 
-// Serve static assets (usually for production)
 app.use(express.static("build"));
 
 const PORT = process.env.PORT || 3000;
