@@ -5,6 +5,13 @@
   align-content: center;
   height: 100vh;
   width: 100vw;
+  margin-top: 1%;
+}
+.squares {
+  width: 50px;
+  height: 50px;
+  margin: 20px;
+  background-color: var(--le_colors_secondary);
 }
 .carousel-container {
   width: 100%;
@@ -18,8 +25,6 @@
   padding: 0px;
   margin: 0px;
   border-radius: 20px;
-  border-width: 1px;
-  border-style: solid;
 }
 .card-container {
   width: 800px;

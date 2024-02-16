@@ -2,7 +2,7 @@ import NavbarComponent from "../components/nav/nav.jsx";
 import ParticlesBackground from "../components/pbackground/pbackground.jsx";
 import ContainingPart from "../components/ContainingPart/ContainingPart.jsx";
 import { useEffect, useState } from "react";
-
+import anime from "animejs/lib/anime.es.js";
 export default function ComputerPage() {
   const [projects, setProjects] = useState([]);
 
@@ -24,12 +24,23 @@ export default function ComputerPage() {
     };
     fetchProjects();
   }, []);
-
+  useEffect(() => {
+    const pel = document.querySelector(".pel");
+    const _ = pel.offsetHeight;
+    anime({
+      targets: ".pel",
+      opacity: [0, 1],
+      scale: [0.2, 1],
+      duration: 1500,
+    });
+  }, []);
   return (
     <>
       <NavbarComponent navTitle="Coding" />
       <ParticlesBackground />
-      <ContainingPart projects={projects} />
+      <div className="pel">
+        <ContainingPart projects={projects} />
+      </div>
     </>
   );
 }

@@ -9,63 +9,43 @@ export default function ParticlesBackground() {
   }, []);
 
   return (
-    <>
-      <Particles
-        id="tsparticles"
-        init={particlesInit}
-        options={{
-          fullScreen: true,
-          particles: {
-            number: {
-              value: 12,
-              density: { enable: true, value_area: 600 },
-            },
-            shape: {
-              type: "circle",
-              stroke: { width: 2, color: le_colors.primary },
-              polygon: { nb_sides: 3 },
-            },
-            size: {
-              value: 29,
-              random: true,
-              anim: { enable: true, speed: 2, size_min: 0.3, sync: false },
-            },
-            move: {
-              enable: true,
-              speed: 1.5,
-              direction: "none",
-              straight: false,
-              out_mode: "out",
-              bounce: false,
-              attract: { enable: false, rotateX: 600, rotateY: 1200 },
-            },
+    <Particles
+      id="tsparticles"
+      init={particlesInit}
+      options={{
+        fullScreen: { enable: true, zIndex: -1 }, // Ensure it's behind content
+        particles: {
+          number: { value: 12, density: { enable: true, value_area: 800 } }, // Adjust density for performance
+          shape: {
+            type: "circle",
+            stroke: { width: 2, color: le_colors.primary },
           },
-          interactivity: {
-            detect_on: "canvas",
-            events: {
-              onhover: { enable: true, mode: "repulse" },
-              onclick: { enable: true, mode: "push" }, // Added onclick interaction for added dynamism
-              resize: true,
-            },
-            modes: {
-              grab: { distance: 800, line_linked: { opacity: 1 } },
-              bubble: {
-                distance: 790,
-                size: 79,
-                duration: 2,
-                opacity: 0.8,
-                speed: 3,
-              },
-              repulse: { distance: 122, duration: 1 },
-              push: { particles_nb: 4 },
-            },
+          size: { value: 29, random: true, anim: { enable: false } }, // Consider disabling animations for performance
+          move: {
+            enable: true,
+            speed: 1.5,
+            direction: "none",
+            out_mode: "out",
+            bounce: false,
           },
-          retina_detect: true,
-          background: {
-            color: "#232b2b", // Setting a dark background color
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: { enable: true, mode: "repulse" },
+            onclick: { enable: true, mode: "push" },
+            resize: true,
           },
-        }}
-      />
-    </>
+          modes: {
+            grab: { distance: 800, line_linked: { opacity: 1 } },
+            bubble: { distance: 800, size: 40, duration: 2, opacity: 0.8 },
+            repulse: { distance: 200 },
+            push: { particles_nb: 4 },
+          },
+        },
+        retina_detect: true,
+        background: { color: "#232b2b" },
+      }}
+    />
   );
 }
