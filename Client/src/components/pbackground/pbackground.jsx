@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import Particles from "@tsparticles/react-tsparticles";
+import Particles from "react-tsparticles";
 
 import { loadFull } from "tsparticles";
 import { le_colors } from "../../constants/colors/colors.js";
@@ -14,14 +14,14 @@ export default function ParticlesBackground() {
       id="tsparticles"
       init={particlesInit}
       options={{
-        fullScreen: { enable: true, zIndex: -1 }, // Ensure it's behind content
+        fullScreen: { enable: true, zIndex: -1 },
         particles: {
-          number: { value: 12, density: { enable: true, value_area: 800 } }, // Adjust density for performance
+          number: { value: 12, density: { enable: true, value_area: 800 } },
           shape: {
             type: "circle",
             stroke: { width: 2, color: le_colors.primary },
           },
-          size: { value: 29, random: true, anim: { enable: false } }, // Consider disabling animations for performance
+          size: { value: 29, random: true, anim: { enable: false } },
           move: {
             enable: true,
             speed: 1.5,
