@@ -5,7 +5,24 @@ import { useEffect, useState } from "react";
 import anime from "animejs/lib/anime.es.js";
 export default function ComputerPage() {
   const [projects, setProjects] = useState([]);
+  useEffect(() => {
+    const handleScroll = () => {
+      const navbar = document.querySelector(".navbar");
+      const card = document.querySelector(".card-container");
+      const navbarBottom = navbar.getBoundingClientRect().bottom;
+      const cardTop = card.getBoundingClientRect().top;
 
+      if (cardTop < navbarBottom) {
+        navbar.style.backgroundColor = "yellow";
+      } else {
+        navbar.style.backgroundColor = "";
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   useEffect(() => {
     const fetchProjects = async () => {
       const projectType = "computer";
