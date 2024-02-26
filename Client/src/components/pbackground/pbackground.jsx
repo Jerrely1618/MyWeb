@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import Particles from "react-tsparticles";
+import Particles from "@tsparticles/react-tsparticles";
 import { loadFull } from "tsparticles";
 import { le_colors } from "../../constants/colors/colors.js";
 
