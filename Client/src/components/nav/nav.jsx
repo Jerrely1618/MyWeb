@@ -5,7 +5,11 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import "bootstrap/dist/css/bootstrap.min.css";
 import PropTypes from "prop-types";
-import { GithubOutlined, LinkedinOutlined } from "@ant-design/icons";
+import {
+  GithubOutlined,
+  LinkedinOutlined,
+  YoutubeOutlined,
+} from "@ant-design/icons";
 import "./nav.css";
 import { Link } from "react-router-dom";
 
@@ -59,6 +63,12 @@ export default function NavbarComponent({ navTitle }) {
                   <div style={{ display: "flex", alignItems: "center" }}>
                     <GithubOutlined style={{ marginRight: "8px" }} />
                     Github
+                  </div>
+                </NavDropdown.Item>
+                <NavDropdown.Item href="https://www.youtube.com/@DchangeinTech">
+                  <div style={{ display: "flex", alignItems: "center" }}>
+                    <YoutubeOutlined style={{ marginRight: "8px" }} />
+                    YT Channel
                   </div>
                 </NavDropdown.Item>
               </NavDropdown>
