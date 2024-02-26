@@ -14,7 +14,7 @@ export default function NavbarComponent({ navTitle }) {
     <Navbar
       key="sm"
       expand="sm"
-      className=" mb-3 pl-3 navbar text-primary transparent  navbar-dark "
+      className=" mb-3 pl-3 navbar text-primary transparent  navbar-dark navbar-custom"
       fixed="top"
     >
       <Container fluid>
@@ -24,6 +24,7 @@ export default function NavbarComponent({ navTitle }) {
           id={`offcanvasNavbar-expand-sm`}
           aria-labelledby={`offcanvasNavbarLabel-expand-sm`}
           placement="end"
+          className="offcanvas-custom bg-dark"
         >
           <Offcanvas.Header closeButton>
             <Offcanvas.Title

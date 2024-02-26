@@ -5,12 +5,15 @@ const app = express();
 const helmet = require("helmet");
 const cors = require("cors");
 const morgan = require("morgan");
-const { fetchProjectsByType } = require("./db");
+const { fetchProjectsByType } = require("../Client/db");
 
 app.use(morgan("combined"));
 app.use(helmet());
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: [
+    "https://my-web-ruddy-nine.vercel.app",
+    "https://my-web-ruddy-nine.vercel.app",
+  ],
   optionsSuccessStatus: 200,
 };
 

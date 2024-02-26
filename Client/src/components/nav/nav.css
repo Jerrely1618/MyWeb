@@ -19,3 +19,21 @@
 .nav-dropdown-item .anticon:hover {
   color: var(--le_secondary_color) !important;
 }
+.navbar-custom .navbar-brand {
+  font-size: 20px; /* Adjust based on your design */
+}
+
+/* Increase z-index for offcanvas to ensure it overlays properly */
+.offcanvas-custom {
+  z-index: 1050; /* Ensure it's above other elements */
+}
+
+@media (max-width: 576px) {
+  .navbar-custom .navbar-toggler {
+    padding: 0.25rem 0.5rem; /* Adjust for better spacing */
+  }
+  /* Adjust navbar brand size on smaller screens */
+  .navbar-custom .navbar-brand {
+    font-size: 18px;
+  }
+}
