@@ -8,38 +8,33 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useEffect } from "react";
 import anime from "animejs/lib/anime.es.js";
-
+const responsive = {
+  superLargeDesktop: {
+    breakpoint: { max: 4000, min: 3000 },
+    items: 1,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 1,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 1,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+};
 export default function ContainingPart({ projects }) {
-  const responsive = {
-    superLargeDesktop: {
-      breakpoint: { max: 4000, min: 3000 },
-      items: 1,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 1,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 1,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-    },
-  };
   const [activeTab, setActiveTab] = useState("Work of Art");
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-    if (projects.length > 0) {
+    if (projects.length > 0 && projects[0].Images) {
       setIsLoading(false);
       setActiveTab(projects[0].title);
     }
-    return () => clearTimeout(timer);
   }, [projects]);
   const handleTabClick = (tabName) => {
     setActiveTab(tabName);
@@ -79,6 +74,7 @@ export default function ContainingPart({ projects }) {
       duration: 3000,
     });
   }, []);
+
   return (
     <div className="main">
       {isLoading ? (

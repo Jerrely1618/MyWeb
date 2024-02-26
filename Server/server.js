@@ -20,6 +20,7 @@ app.get("/api/projects/:type", async (req, res) => {
   const { type } = req.params;
   try {
     const projects = await fetchProjectsByType(type);
+    console.log(projects);
     res.json(projects);
   } catch (error) {
     console.error("Error fetching projects:", error);
