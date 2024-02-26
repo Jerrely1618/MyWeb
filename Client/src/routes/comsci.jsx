@@ -3,43 +3,22 @@ import ParticlesBackground from "../components/pbackground/pbackground.jsx";
 import ContainingPart from "../components/ContainingPart/ContainingPart.jsx";
 import { useEffect, useState } from "react";
 import anime from "animejs/lib/anime.es.js";
+import { fetchProjectsByType } from "../functions/projectFunctions.js";
+
 export default function ComputerPage() {
   const [projects, setProjects] = useState([]);
+
   useEffect(() => {
-    const handleScroll = () => {
-      const navbar = document.querySelector(".navbar");
-      const card = document.querySelector(".card-container");
-      const navbarBottom = navbar.getBoundingClientRect().bottom;
-      const cardTop = card.getBoundingClientRect().top;
-
-      if (cardTop < navbarBottom) {
-        navbar.style.backgroundColor = "yellow";
-      } else {
-        navbar.style.backgroundColor = "";
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-  useEffect(() => {
-    const fetchProjects = async () => {
-      const projectType = "computer";
+    const fetchData = async () => {
       try {
-        const response = await fetch(
-          `http://localhost:3000/api/projects/${projectType}`
-        );
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        const data = await response.json();
-        setProjects(data);
+        const projectsData = await fetchProjectsByType("computer");
+        setProjects(projectsData);
       } catch (error) {
-        console.log("Fetching error:", error);
+        console.log("Fetching projects error:", error);
       }
     };
-    fetchProjects();
+
+    fetchData();
   }, []);
   useEffect(() => {
     const pel = document.querySelector(".pel");

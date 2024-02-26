@@ -3,27 +3,22 @@ import ParticlesBackground from "../components/pbackground/pbackground.jsx";
 import ContainingPart from "../components/ContainingPart/ContainingPart.jsx";
 import { useEffect, useState } from "react";
 import anime from "animejs/lib/anime.es.js";
+import { fetchProjectsByType } from "../functions/projectFunctions.js";
 
 export default function ElectronicsPage() {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    const fetchProjects = async () => {
-      const projectType = "electronics";
+    const fetchData = async () => {
       try {
-        const response = await fetch(
-          `http://localhost:3000/api/projects/${projectType}`
-        );
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        const data = await response.json();
-        setProjects(data);
+        const projectsData = await fetchProjectsByType("electronics");
+        setProjects(projectsData);
       } catch (error) {
-        console.log("Fetching error:", error);
+        console.log("Fetching projects error:", error);
       }
     };
-    fetchProjects();
+
+    fetchData();
   }, []);
   useEffect(() => {
     const pel = document.querySelector(".pel");
