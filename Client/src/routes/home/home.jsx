@@ -4,6 +4,7 @@ import "./home.css";
 import "../../constants/colors/colors.css";
 import anime from "animejs/lib/anime.es.js";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function HomePage() {
   useEffect(() => {
@@ -35,9 +36,9 @@ export default function HomePage() {
         </div>
       </div>
       <ParticlesBackground />
-      <a className="fixed-link" href="/logindev">
+      <Link to="/logindev" className="fixed-link">
         Oh no!
-      </a>
+      </Link>
     </>
   );
 }

@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import PropTypes from "prop-types";
 import { GithubOutlined, LinkedinOutlined } from "@ant-design/icons";
 import "./nav.css";
+import { Link } from "react-router-dom";
 
 export default function NavbarComponent({ navTitle }) {
   return (
@@ -34,9 +35,15 @@ export default function NavbarComponent({ navTitle }) {
           </Offcanvas.Header>
           <Offcanvas.Body>
             <Nav className="text-primary justify-content-end flex-grow-1 pe-3">
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/ee">Electronics</Nav.Link>
-              <Nav.Link href="/cs">Coding</Nav.Link>
+              <Nav.Link as={Link} to="/">
+                Home
+              </Nav.Link>{" "}
+              <Nav.Link as={Link} to="/ee">
+                Electronics
+              </Nav.Link>{" "}
+              <Nav.Link as={Link} to="/cs">
+                Coding
+              </Nav.Link>
               <NavDropdown
                 title="Contact"
                 id={`offcanvasNavbarDropdown-expand-sm`}
