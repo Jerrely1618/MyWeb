@@ -8,6 +8,6 @@ export default defineConfig({
     rollupOptions: {},
   },
   optimizeDeps: {
-    include: ["tsparticles"],
+    include: ["react-tsparticles", "tsparticles"],
   },
 });
