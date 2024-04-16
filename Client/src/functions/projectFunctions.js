@@ -12,6 +12,7 @@ export async function fetchProjectsByType(type) {
       )
       .eq("type", type);
     if (error) throw error;
+    console.log("Fetched projects:", data);
     return data;
   } catch (error) {
     console.error("Error fetching projects:", error);

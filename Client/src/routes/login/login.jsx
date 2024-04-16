@@ -1,16 +1,13 @@
 import NavbarComponent from "../../components/nav/nav.jsx";
 import ParticlesBackground from "../../components/pbackground/pbackground.jsx";
-import "rc-banner-anim/assets/index.css";
 import anime from "animejs/lib/anime.es.js";
 import { useState } from "react";
-import Button from "@mui/material/Button";
-import { le_colors } from "../../constants/colors/colors.js";
-import { LockOutlined, UserOutlined } from "@ant-design/icons";
+import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { Checkbox, Form, Input } from "antd";
-import "./login.css";
 
 export default function LoginPage() {
   const [animationComplete, setAnimationComplete] = useState(false);
+
   const handleButtonClick = () => {
     anime({
       targets: ".el",
@@ -28,88 +25,62 @@ export default function LoginPage() {
     <>
       <NavbarComponent navTitle="Jerrely Portfolio" />
       <ParticlesBackground />
-      <div
-        style={{
-          position: "relative",
-          zIndex: 2,
-          paddingLeft: "10px",
-        }}
-      >
-        <div className="css-prop-demo">
-          <div className="el">
-            <div>
-              <h1>Dev Login</h1>
-              <Form
-                name="normal_login"
-                className="login-form"
-                initialValues={{
-                  remember: true,
-                }}
+      <div className="relative z-10 pl-2.5">
+        <div className="w-1/2 h-1/2 fixed left-[150vw] top-1/3 bg-[var(--le_colors_secondary)] rounded-[40px] border-[var(--le_colors_primary)] border-2 flex flex-col justify-center items-center">
+          <div className="w-full flex flex-col justify-center items-center">
+            <h1>Dev Login</h1>
+            <Form
+              name="normal_login"
+              className="login-form"
+              initialValues={{ remember: true }}
+            >
+              <Form.Item
+                name="username"
+                rules={[
+                  { required: true, message: "Please input your Username!" },
+                ]}
               >
-                <Form.Item
-                  name="username"
-                  rules={[
-                    {
-                      required: true,
-                      message: "Please input your Username!",
-                    },
-                  ]}
+                <Input
+                  prefix={<UserOutlined className="site-form-item-icon" />}
+                  placeholder="Username"
+                />
+              </Form.Item>
+              <Form.Item
+                name="password"
+                rules={[
+                  { required: true, message: "Please input your Password!" },
+                ]}
+              >
+                <Input
+                  prefix={<LockOutlined className="site-form-item-icon" />}
+                  type="password"
+                  placeholder="Password"
+                />
+              </Form.Item>
+              <Form.Item>
+                <Form.Item name="remember" valuePropName="checked" noStyle>
+                  <Checkbox>Remember me</Checkbox>
+                </Form.Item>
+              </Form.Item>
+              <Form.Item>
+                <button
+                  type="submit"
+                  className="login-form-button bg-primary text-white"
                 >
-                  <Input
-                    prefix={<UserOutlined className="site-form-item-icon" />}
-                    placeholder="Username"
-                  />
-                </Form.Item>
-                <Form.Item
-                  name="password"
-                  rules={[
-                    {
-                      required: true,
-                      message: "Please input your Password!",
-                    },
-                  ]}
-                >
-                  <Input
-                    prefix={<LockOutlined className="site-form-item-icon" />}
-                    type="password"
-                    placeholder="Password"
-                  />
-                </Form.Item>
-                <Form.Item>
-                  <Form.Item name="remember" valuePropName="checked" noStyle>
-                    <Checkbox>Remember me</Checkbox>
-                  </Form.Item>
-                </Form.Item>
-
-                <Form.Item>
-                  <Button
-                    type="primary"
-                    htmlType="submit"
-                    className="login-form-button"
-                  >
-                    Log in
-                  </Button>
-                </Form.Item>
-              </Form>
-            </div>
+                  Log in
+                </button>
+              </Form.Item>
+            </Form>
           </div>
         </div>
         <h1 className="text-container">Oh no! You Hacker!</h1>
         <p>You have found my login page</p>
-        <Button
+        <button
           onClick={handleButtonClick}
-          style={{
-            borderWidth: "1px",
-            borderStyle: "solid",
-            borderColor: le_colors.secondary,
-            color: le_colors.secondary,
-            background: "white",
-            fontWeight: "bold",
-          }}
-          className="lebutton"
+          className="border border-[var(--le_colors_secondary)] text-[var(--le_colors_secondary)] bg-white font-bold"
         >
           Anyway
-        </Button>
+        </button>
       </div>
     </>
   );
