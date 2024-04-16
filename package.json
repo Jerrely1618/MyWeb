@@ -5,7 +5,7 @@
   "homepage": "https://Jerrely1618.github.io/MyWeb",
   "type": "module",
   "scripts": {
-    "dev": "cd client && vite",
+    "dev": "cd Client && vite",
     "build": "cd client && vite build --outDir ../build",
     "lint": "cd client && eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "cd client && vite preview",
