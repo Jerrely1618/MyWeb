@@ -55,7 +55,7 @@ export default function HomePage() {
           <h1 className="zen-of text-7xl font-bold text-[#efefe4] sm:text-8xl xs:text-6xl xs:ml-4">
             Work of
           </h1>
-          <h1 className="victor text-5xl pl-2 font-bold text-fourth sm:text-7xl xs:text-5xl">
+          <h1 className="victor text-5xl pl-2 font-bold text-one sm:text-7xl xs:text-5xl">
             Victor
           </h1>
           <h3

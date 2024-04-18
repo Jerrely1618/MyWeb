@@ -13,7 +13,6 @@ export default function ComputerPage() {
       try {
         const projectsData = await fetchProjectsByType("computer");
         setProjects(projectsData);
-        console.log(projectsData);
       } catch (error) {
         console.log("Fetching projects error:", error);
       }

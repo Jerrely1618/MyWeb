@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import anime from "animejs/lib/anime.es.js";
 import SimpleBar from "simplebar-react";
 import "simplebar-react/dist/simplebar.min.css";
+import TechnologiesComponent from "../techonologies";
 const responsive = {
   superLargeDesktop: {
     breakpoint: { max: 4000, min: 3000 },
@@ -105,30 +106,24 @@ export default function ContainingPart({ projects }) {
           <Card.Header className="card-header">
             <Nav variant="tabs" defaultActiveKey="#first">
               {projects.map((project) => (
-                <div key={project.title}>
-                  <Nav.Item>
-                    <Nav.Link
-                      onClick={() => handleTabClick(project.title)}
-                      active={activeTab === project.title}
-                      className="nav-link"
-                    >
-                      {project.title}
-                    </Nav.Link>
-                  </Nav.Item>
-                </div>
+                <Nav.Item key={project.title}>
+                  <Nav.Link
+                    onClick={() => handleTabClick(project.title)}
+                    active={activeTab === project.title}
+                    className="nav-link"
+                  >
+                    {project.title}
+                  </Nav.Link>
+                </Nav.Item>
               ))}
-              <Nav.Item>
-                <Nav.Link href="#disabled" disabled>
-                  Work of Art
-                </Nav.Link>
-              </Nav.Item>
             </Nav>
           </Card.Header>
-          {projects.map((project) => (
-            <div key={project.title} className="carousel-container">
-              <SimpleBar style={{ maxHeight: "75vh" }}>
-                <Card.Body className="overflow-auto">
-                  {activeTab === project.title && (
+          <div className="carousel-container">
+            {projects
+              .filter((project) => project.title === activeTab)
+              .map((project) => (
+                <SimpleBar key={project.title} style={{ maxHeight: "75vh" }}>
+                  <Card.Body className="overflow-auto">
                     <>
                       {project.Images && (
                         <div className="images">
@@ -136,7 +131,7 @@ export default function ContainingPart({ projects }) {
                             responsive={responsive}
                             autoPlay={true}
                             autoPlaySpeed={1000000}
-                            className="w-full  h-128 mr-0"
+                            className="w-full h-128 mr-0"
                           >
                             {project.Images.map((image, index) => (
                               <div
@@ -156,13 +151,18 @@ export default function ContainingPart({ projects }) {
                       <div className="text-3xl font-bold py-2 text-gray-800">
                         {project.title}
                       </div>
+                      {project.technologies && (
+                        <section className="mt-1">
+                          <h2 className="text-2xl font-semibold text-gray-700">
+                            Technologies Used
+                          </h2>
+
+                          <TechnologiesComponent
+                            technologies={project.technologies}
+                          />
+                        </section>
+                      )}
                       <section className="mt-1">
-                        <h2 className="text-2xl font-semibold text-gray-700">
-                          Technologies Used
-                        </h2>
-                        <p className="text-gray-600 mt-1">List</p>
-                      </section>
-                      <section className="mt-4">
                         <h2 className="text-2xl font-semibold text-gray-700">
                           Inspiration
                         </h2>
@@ -185,17 +185,16 @@ export default function ContainingPart({ projects }) {
                           href={project.git_link}
                           data-color-scheme="no-preference: light; light: light; dark: dark_high_contrast;"
                           data-size="large"
-                          aria-label={"Star ${project.title} on GitHub"}
+                          aria-label={`Star ${project.title} on GitHub`}
                         >
                           Repository
                         </GitHubButton>
                       )}
                     </>
-                  )}
-                </Card.Body>
-              </SimpleBar>
-            </div>
-          ))}
+                  </Card.Body>
+                </SimpleBar>
+              ))}
+          </div>
         </Card>
       )}
     </div>
