@@ -14,6 +14,7 @@ import {
   SiMongodb,
   SiExpress,
   SiNodedotjs,
+  SiFirebase,
 } from "react-icons/si";
 import PropTypes from "prop-types";
 
@@ -31,6 +32,7 @@ function getIcon(iconName) {
     express: <SiExpress />,
     nodejs: <SiNodedotjs />,
     openai: <FaRobot />,
+    firebase: <SiFirebase />,
   };
   return icons[iconName] || <span>Unknown Tech</span>;
 }
