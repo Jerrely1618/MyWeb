@@ -8,6 +8,18 @@
   margin-top: 0px;
   z-index: 10;
 }
+.card-header {
+  overflow-y: auto;
+  white-space: nowrap;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 .squares {
   width: 50px;
   height: 50px;
@@ -59,5 +71,9 @@
   .images img {
     min-height: 0;
     height: auto;
+  }
+  .nav-link {
+    padding: 8px 10px; /* Smaller padding */
+    font-size: 14px;
   }
 }

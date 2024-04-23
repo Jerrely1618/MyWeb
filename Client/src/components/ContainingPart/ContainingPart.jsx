@@ -42,6 +42,7 @@ export default function ContainingPart({ projects }) {
   const handleTabClick = (tabName) => {
     setActiveTab(tabName);
   };
+
   useEffect(() => {
     const cardBodyWidth = document.querySelector(
       ".carousel-container"
@@ -103,14 +104,22 @@ export default function ContainingPart({ projects }) {
         </Card>
       ) : (
         <Card className="card-container overflow-hidden max-h-[80vh] shadow-lg">
-          <Card.Header className="card-header">
-            <Nav variant="tabs" defaultActiveKey="#first">
+          <Card.Header className="card-header flex overflow-x-auto no-scrollbar">
+            <Nav
+              variant="tabs"
+              defaultActiveKey="#first"
+              className="flex whitespace-nowrap"
+            >
               {projects.map((project) => (
-                <Nav.Item key={project.title}>
+                <Nav.Item key={project.title} className="mr-2">
                   <Nav.Link
                     onClick={() => handleTabClick(project.title)}
                     active={activeTab === project.title}
-                    className="nav-link"
+                    className={`nav-link ${
+                      activeTab === project.title
+                        ? "bg-blue-500 text-secondary"
+                        : "text-blue-500"
+                    }`}
                   >
                     {project.title}
                   </Nav.Link>
