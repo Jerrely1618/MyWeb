@@ -44,7 +44,7 @@ function TechnologiesComponent({ technologies }) {
         <div
           key={tech}
           title={tech.charAt(0).toUpperCase() + tech.slice(1)}
-          className="bg-two hover:bg-three text-white rounded-xl text-4xl w-14 h-14 flex items-center justify-center transition-all duration-150 ease-in-out transform hover:scale-95"
+          className="bg-two hover:bg-three text-white rounded-xl text-5xl w-16 h-16 flex items-center justify-center transition-all duration-150 ease-in-out transform hover:scale-95"
         >
           {getIcon(tech)}
         </div>
