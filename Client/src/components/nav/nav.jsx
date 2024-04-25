@@ -18,11 +18,15 @@ export default function NavbarComponent({ navTitle }) {
     <Navbar
       key="sm"
       expand="sm"
-      className=" mb-3 pl-3 navbar text-primary transparent  navbar-dark navbar-custom"
+      className=" mb-3 pl-3 navbar text-one transparent  navbar-dark navbar-custom"
       fixed="top"
     >
       <Container fluid>
-        <Navbar.Brand href="/">{navTitle}</Navbar.Brand>
+        <Navbar.Brand href="/" className="flex">
+          <h4 className="hover:text-one text-white ">JV Develops</h4>
+          {navTitle && <span className="text-one px-2"> | </span>}
+          <h4 className="text-one hover:text-white"> {navTitle}</h4>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-sm`} />
         <Navbar.Offcanvas
           id={`offcanvasNavbar-expand-sm`}
@@ -39,7 +43,7 @@ export default function NavbarComponent({ navTitle }) {
             </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
-            <Nav className="text-primary justify-content-end flex-grow-1 pe-3">
+            <Nav className="text-one justify-content-end flex-grow-1 pe-3">
               <Nav.Link as={Link} to="/">
                 Home
               </Nav.Link>{" "}

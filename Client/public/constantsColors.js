@@ -1,5 +1,5 @@
 export const le_colors = {
-  primary: "black",
-  secondary: "white",
-  third: "#1976d2",
+  primary: "#0ea5e9",
+  secondary: "#0ea5e9",
+  third: "#0ea5e9",
 };

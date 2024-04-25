@@ -5,7 +5,8 @@ import "../../constants/colors/colors.css";
 import anime from "animejs/lib/anime.es.js";
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-
+import { FaGithub } from "react-icons/fa";
+import { SiLinkedin } from "react-icons/si";
 export default function HomePage() {
   const portfolioRef = useRef(null);
   const textContent = "The Portfolio";
@@ -22,7 +23,7 @@ export default function HomePage() {
     // Begin initial animations
     anime({
       targets: ".zen-of",
-      translateX: [-1000, 10],
+      translateX: [-1000, 0],
       easing: "easeInOutSine",
       duration: 750,
       autoplay: true,
@@ -30,7 +31,7 @@ export default function HomePage() {
     });
     anime({
       targets: ".victor",
-      translateX: [10, 900],
+      translateX: [0, 900],
       easing: "easeInOutSine",
       direction: "reverse",
       duration: 750,
@@ -50,24 +51,46 @@ export default function HomePage() {
   return (
     <>
       <div className="relative z-10">
-        <NavbarComponent navTitle="Jerrely Portfolio" />
-        <div>
-          <h1 className="zen-of text-7xl font-bold text-[#efefe4] sm:text-8xl xs:text-6xl xs:ml-4">
-            Work of
+        <NavbarComponent />
+        <div className="px-2 sm:px-10">
+          <h1 className="zen-of text-5xl font-bold text-[#efefe4] sm:text-7xl xs:text-5xl">
+            Jerrely Vizueta
           </h1>
-          <h1 className="victor text-5xl pl-2 font-bold text-one sm:text-7xl xs:text-5xl">
-            Victor
+          <h1 className="victor text-5xl font-bold text-one sm:text-7xl xs:text-5xl">
+            Software Engineer
           </h1>
           <h3
             ref={portfolioRef}
-            className="portfolio text-3xl pl-8 font-bold text-[#efefe4]"
+            className="portfolio text-2xl  font-bold text-[#efefe4]"
           ></h3>
+          <div className="flex space-x-2">
+            <a
+              href="https://www.linkedin.com/in/jerrelyv"
+              className="bg-two hover:bg-one text-white rounded-xl text-4xl w-14 h-14 flex items-center justify-center transition-all duration-150 ease-in-out transform hover:scale-95"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <SiLinkedin className="text-4xl" />
+            </a>
+
+            <a
+              href="https://github.com/Jerrely1618"
+              className="bg-two hover:bg-one text-white rounded-xl text-4xl w-14 h-14 flex items-center justify-center transition-all duration-150 ease-in-out transform hover:scale-95"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              <FaGithub className="text-4xl" />
+            </a>
+          </div>
         </div>
       </div>
+
       <ParticlesBackground />
-      <Link to="/logindev" className="fixed-link">
+      {/* <Link to="/logindev" className="fixed-link text-two">
         Oh no!
-      </Link>
+      </Link> */}
     </>
   );
 }

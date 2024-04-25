@@ -45,7 +45,7 @@ export default function ParticlesBackground() {
           },
         },
         retina_detect: true,
-        background: { color: "#232b2b" },
+        background: { color: "#1e293b" },
       }}
     />
   );

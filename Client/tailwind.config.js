@@ -3,8 +3,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        one: { DEFAULT: "#aadbff" },
-        two: { DEFAULT: "#2D6A98" },
+        one: { DEFAULT: "#0ea5e9" },
+        two: { DEFAULT: "#1e293b" },
         three: { DEFAULT: "#7d5ba6" },
       },
     },
