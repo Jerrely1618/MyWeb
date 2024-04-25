@@ -11,6 +11,7 @@ import anime from "animejs/lib/anime.es.js";
 import SimpleBar from "simplebar-react";
 import "simplebar-react/dist/simplebar.min.css";
 import TechnologiesComponent from "../techonologies";
+import PdfReviewer from "../pdfDisplay";
 const responsive = {
   superLargeDesktop: {
     breakpoint: { max: 4000, min: 3000 },
@@ -42,7 +43,6 @@ export default function ContainingPart({ projects }) {
   const handleTabClick = (tabName) => {
     setActiveTab(tabName);
   };
-
   useEffect(() => {
     const cardBodyWidth = document.querySelector(
       ".carousel-container"
@@ -103,23 +103,15 @@ export default function ContainingPart({ projects }) {
           </div>
         </Card>
       ) : (
-        <Card className="card-container overflow-hidden max-h-[80vh] shadow-lg">
-          <Card.Header className="card-header flex overflow-x-auto no-scrollbar">
-            <Nav
-              variant="tabs"
-              defaultActiveKey="#first"
-              className="flex whitespace-nowrap"
-            >
+        <Card className="card-container overflow-hidden  shadow-lg">
+          <Card.Header className="card-header">
+            <Nav variant="tabs" defaultActiveKey="#first">
               {projects.map((project) => (
-                <Nav.Item key={project.title} className="mr-2">
+                <Nav.Item key={project.title}>
                   <Nav.Link
                     onClick={() => handleTabClick(project.title)}
                     active={activeTab === project.title}
-                    className={`nav-link ${
-                      activeTab === project.title
-                        ? "bg-blue-500 text-secondary"
-                        : "text-blue-500"
-                    }`}
+                    className="nav-link"
                   >
                     {project.title}
                   </Nav.Link>
@@ -131,77 +123,86 @@ export default function ContainingPart({ projects }) {
             {projects
               .filter((project) => project.title === activeTab)
               .map((project) => (
-                <SimpleBar key={project.title} style={{ maxHeight: "75vh" }}>
+                <>
                   <Card.Body className="overflow-auto">
-                    <>
-                      {project.Images && (
-                        <div className="images">
-                          <Carousel
-                            responsive={responsive}
-                            autoPlay={true}
-                            autoPlaySpeed={1000000}
-                            className="w-full h-128 mr-0"
-                          >
-                            {project.Images.map((image, index) => (
-                              <div
-                                className="xl:w-3/4 w-full mx-auto h-full text-center flex items-center justify-center"
-                                key={index}
-                              >
-                                <img
-                                  src={image.url}
-                                  alt="Gallery item"
-                                  className="max-h-full max-w-full object-contain"
-                                />
-                              </div>
-                            ))}
-                          </Carousel>
+                    <SimpleBar
+                      key={project.title}
+                      style={{ maxHeight: "72vh" }}
+                    >
+                      <>
+                        {project.Images && (
+                          <div className="images">
+                            <Carousel
+                              responsive={responsive}
+                              autoPlay={true}
+                              autoPlaySpeed={1000000}
+                              className="w-full h-128 mr-0"
+                            >
+                              {project.Images.map((image, index) => (
+                                <div
+                                  className="xl:w-3/4 w-full mx-auto h-full text-center flex items-center justify-center"
+                                  key={index}
+                                >
+                                  <img
+                                    src={image.url}
+                                    alt="Gallery item"
+                                    className="max-h-full max-w-full object-contain"
+                                  />
+                                </div>
+                              ))}
+                            </Carousel>
+                          </div>
+                        )}
+                        <div className="text-3xl font-bold py-2 text-gray-800">
+                          {project.title}
                         </div>
-                      )}
-                      <div className="text-3xl font-bold py-2 text-gray-800">
-                        {project.title}
-                      </div>
-                      {project.technologies && (
+                        {project.report && (
+                          <PdfReviewer fileUrl={project.report} />
+                        )}
+                        {project.technologies && (
+                          <section className="mt-1">
+                            <h2 className="text-2xl font-semibold text-gray-700">
+                              Technologies Used
+                            </h2>
+
+                            <TechnologiesComponent
+                              technologies={project.technologies}
+                            />
+                          </section>
+                        )}
                         <section className="mt-1">
                           <h2 className="text-2xl font-semibold text-gray-700">
-                            Technologies Used
+                            Inspiration
                           </h2>
-
-                          <TechnologiesComponent
-                            technologies={project.technologies}
-                          />
+                          <p className="text-gray-600 mt-1">
+                            {project.inspiration}
+                          </p>
                         </section>
-                      )}
-                      <section className="mt-1">
-                        <h2 className="text-2xl font-semibold text-gray-700">
-                          Inspiration
-                        </h2>
-                        <p className="text-gray-600 mt-1">
-                          {project.inspiration}
-                        </p>
-                      </section>
 
-                      <section className="mt-4">
-                        <h2 className="text-2xl font-semibold text-gray-700">
-                          What It Does
-                        </h2>
-                        <p className="text-gray-600 mt-1">
-                          {project.description}
-                        </p>
-                      </section>
+                        <section className="mt-4">
+                          <h2 className="text-2xl font-semibold text-gray-700">
+                            What It Does
+                          </h2>
+                          <p className="text-gray-600 mt-1">
+                            {project.description}
+                          </p>
+                        </section>
 
-                      {project.git_link && (
-                        <GitHubButton
-                          href={project.git_link}
-                          data-color-scheme="no-preference: light; light: light; dark: dark_high_contrast;"
-                          data-size="large"
-                          aria-label={`Star ${project.title} on GitHub`}
-                        >
-                          Repository
-                        </GitHubButton>
-                      )}
-                    </>
+                        {project.git_link && (
+                          <GitHubButton
+                            href={project.git_link}
+                            data-color-scheme="no-preference: light; light: light; dark: dark_high_contrast;"
+                            data-size="large"
+                            aria-label={`Star ${project.title} on GitHub`}
+                            style={{ width: "100%", height: "100%" }}
+                          >
+                            Repository
+                          </GitHubButton>
+                        )}
+                      </>
+                    </SimpleBar>
                   </Card.Body>
-                </SimpleBar>
+                </>
               ))}
           </div>
         </Card>

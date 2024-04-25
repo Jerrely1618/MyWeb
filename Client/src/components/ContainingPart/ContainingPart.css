@@ -50,7 +50,7 @@
 }
 .card-header {
   width: 100%;
-  height: 50px;
+  height: 51px;
   background-color: var(--le_colors_secondary);
 }
 .card-text-container {
@@ -71,9 +71,5 @@
   .images img {
     min-height: 0;
     height: auto;
-  }
-  .nav-link {
-    padding: 8px 10px; /* Smaller padding */
-    font-size: 14px;
   }
 }
