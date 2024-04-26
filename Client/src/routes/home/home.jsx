@@ -53,7 +53,7 @@ export default function HomePage() {
       <div className="relative z-10">
         <NavbarComponent />
         <div className="px-2 sm:px-10">
-          <h1 className="zen-of text-5xl font-bold text-[#efefe4] sm:text-7xl xs:text-5xl">
+          <h1 className="zen-of text-5xl font-bold text-[#efefe4] sm:text-4xl xs:text-3xl">
             Jerrely Vizueta
           </h1>
           <h1 className="victor text-5xl font-bold text-one sm:text-7xl xs:text-5xl">
