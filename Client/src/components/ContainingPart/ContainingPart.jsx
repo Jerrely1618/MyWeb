@@ -1,5 +1,4 @@
-import Card from "react-bootstrap/Card";
-import Nav from "react-bootstrap/Nav";
+import { Card, Nav, Dropdown } from "react-bootstrap";
 import GitHubButton from "react-github-btn";
 import { useState } from "react";
 import "./ContainingPart.css";
@@ -12,6 +11,7 @@ import SimpleBar from "simplebar-react";
 import "simplebar-react/dist/simplebar.min.css";
 import TechnologiesComponent from "../techonologies";
 import PdfReviewer from "../pdfDisplay";
+
 const responsive = {
   superLargeDesktop: {
     breakpoint: { max: 4000, min: 3000 },
@@ -33,7 +33,25 @@ const responsive = {
 export default function ContainingPart({ projects }) {
   const [activeTab, setActiveTab] = useState("Work of Art");
   const [isLoading, setIsLoading] = useState(true);
+  const [visibleTabs, setVisibleTabs] = useState([]);
+  const [overflowTabs, setOverflowTabs] = useState([]);
+  useEffect(() => {
+    const updateTabs = () => {
+      const maxTabs = window.innerWidth > 768 ? 5 : 2;
+      if (projects.length > maxTabs) {
+        setVisibleTabs(projects.slice(0, maxTabs));
+        setOverflowTabs(projects.slice(maxTabs));
+      } else {
+        setVisibleTabs(projects);
+        setOverflowTabs([]);
+      }
+    };
 
+    updateTabs();
+    window.addEventListener("resize", updateTabs);
+
+    return () => window.removeEventListener("resize", updateTabs);
+  }, [projects]);
   useEffect(() => {
     if (projects.length > 0 && projects[0].Images) {
       setIsLoading(false);
@@ -106,7 +124,7 @@ export default function ContainingPart({ projects }) {
         <Card className="card-container overflow-hidden  shadow-lg">
           <Card.Header className="card-header">
             <Nav variant="tabs" defaultActiveKey="#first">
-              {projects.map((project) => (
+              {visibleTabs.map((project) => (
                 <Nav.Item key={project.title}>
                   <Nav.Link
                     onClick={() => handleTabClick(project.title)}
@@ -117,6 +135,21 @@ export default function ContainingPart({ projects }) {
                   </Nav.Link>
                 </Nav.Item>
               ))}
+              {overflowTabs.length > 0 && (
+                <Dropdown as={Nav.Item}>
+                  <Dropdown.Toggle as={Nav.Link}>More</Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    {overflowTabs.map((project) => (
+                      <Dropdown.Item
+                        key={project.title}
+                        onClick={() => handleTabClick(project.title)}
+                      >
+                        {project.title}
+                      </Dropdown.Item>
+                    ))}
+                  </Dropdown.Menu>
+                </Dropdown>
+              )}
             </Nav>
           </Card.Header>
           <div className="carousel-container">
