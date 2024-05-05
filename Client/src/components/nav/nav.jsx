@@ -69,12 +69,6 @@ export default function NavbarComponent({ navTitle }) {
                     Github
                   </div>
                 </NavDropdown.Item>
-                <NavDropdown.Item href="https://www.youtube.com/@DchangeinTech">
-                  <div style={{ display: "flex", alignItems: "center" }}>
-                    <YoutubeOutlined style={{ marginRight: "8px" }} />
-                    YT Channel
-                  </div>
-                </NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Offcanvas.Body>
